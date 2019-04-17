@@ -1,0 +1,19 @@
+.message {
+    display: grid;
+
+    grid-template-areas:
+            "avatar text";
+    grid-template-columns: 1fr 10fr;
+    grid-template-rows: 60px;
+    grid-gap: 5px;
+}
+
+.message img {
+    grid-area: avatar;
+    width: 50px;
+    border-radius: 3px;
+}
+
+.text {
+    grad-area: text;
+}

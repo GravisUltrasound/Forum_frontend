@@ -1,22 +1,25 @@
 import React from 'react';
-import './ForumApp.css';
+import s from './ForumApp.module.css';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
-import Content from './components/content/Content';
+import Topics from './components/content/topics/Topics';
+import {BrowserRouter, Route} from "react-router-dom";
+import Profile from "./components/profile/Profile";
+import Footer from "./components/footer/Footer";
 
 const ForumApp = () => {
     return (
-        <div className='appMain'>
-            <div className='appHeader'>
+        <BrowserRouter>
+            <div className={s.appMain}>
                 <Header/>
-            </div>
-            <div className='appNavbar'>
                 <Navbar/>
+                <div className={s.appContent}>
+                    <Route path='/profile' component={Profile}/>
+                    <Route path='/topics' component={Topics}/>
+                </div>
+                <Footer/>
             </div>
-            <div className='appContent'>
-                <Content/>
-            </div>
-        </div>
+        </BrowserRouter>
     );
 }
 

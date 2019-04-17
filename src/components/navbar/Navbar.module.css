@@ -1,0 +1,16 @@
+.appNavbar {
+    grid-area: navbar;
+    background-color: aqua;
+    padding: 20px;
+}
+
+.item a {
+    color: black;
+    text-decoration: none;
+}
+
+.item a.active {
+    color: white;
+    background-color: darkturquoise;
+    text-decoration: none;
+}
