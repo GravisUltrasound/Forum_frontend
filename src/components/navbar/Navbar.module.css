@@ -8,28 +8,30 @@
 }
 
 .item a {
-    color: #fff;
+    color: #eeeeee;
     text-decoration: none;
     user-select: none;
     background-image: url(../../images/black30%.png);
     outline: none; /* убирать контур в Mozilla */
     display:block;
-    height: 50px;
+    height: 40px;
     width: 150px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
+    text-shadow: 1px 2px 3px #333439;
+    padding-top: 10px;
 
 }
 
 .item a.active {
-    color: white;
+    color: #eeeeee;
     background-color: darkturquoise;
     text-decoration: none;
 
 }
 
 .item a:hover {
-    color: white;
+    color: #eeeeee;
     background-color: #07e0e3;
     text-decoration: none;
 }
