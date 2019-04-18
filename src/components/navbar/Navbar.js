@@ -15,12 +15,6 @@ const Navbar = () => {
                     Topics
                 </NavLink>
             </div>
-            New topics
-            <ul>
-                <li>topic 1</li>
-                <li>topic 2</li>
-                <li>topic 3</li>
-            </ul>
         </nav>
     );
 }

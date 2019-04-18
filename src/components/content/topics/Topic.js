@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Topic.module.css';
+import Message from "../messages/Message";
 
 const Topic = (props) => {
     return(

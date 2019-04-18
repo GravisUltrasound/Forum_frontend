@@ -6,6 +6,7 @@ import Topics from './components/content/topics/Topics';
 import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./components/profile/Profile";
 import Footer from "./components/footer/Footer";
+import Topic from "./components/content/topics/Topic";
 
 const ForumApp = () => {
     return (
