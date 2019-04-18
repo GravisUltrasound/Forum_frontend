@@ -1,7 +1,10 @@
 .appNavbar {
     grid-area: navbar;
-    background-color: aqua;
-    padding: 20px;
+    background-color: #333439;
+    padding: 5px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 2px 2px rgba(122,122,122,0.5);
+
 }
 
 .item a {
@@ -9,20 +12,28 @@
     text-decoration: none;
     user-select: none;
     background-image: url(../../images/black30%.png);
-    padding: .7em 1.5em;
     outline: none; /* убирать контур в Mozilla */
-    margin-right: 3px;
     display:block;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    font-size: 30px;
+
 }
 
 .item a.active {
     color: white;
     background-color: darkturquoise;
     text-decoration: none;
+
 }
 
 .item a:hover {
     color: white;
-    background-color: red;
+    background-color: #07e0e3;
     text-decoration: none;
+}
+.item {
+    display: inline-block;
+
 }

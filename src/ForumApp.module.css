@@ -7,16 +7,18 @@
   "header navbar"
   "content content"
   "footer footer";
-  grid-template-columns: 2fr 5fr;
-  grid-template-rows: 60px 1fr 160px;
-  grid-gap: 0px;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 60px 1fr 30px;
+  grid-row-gap: 20px;
 
-  /*background-color: black;*/
-}
+  }
 
 .appContent {
   grid-area: content;
-  background-color: floralwhite;
-
+  background-color: #eeeeee;
+  border-radius: 20px;
   padding: 30px;
+  box-shadow: 1px 1px 8px rgba(122,122,122,0.5);
+
 }
+

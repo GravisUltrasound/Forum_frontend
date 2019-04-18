@@ -4,7 +4,7 @@ import s from './Header.module.css';
 const Header = () => {
     return(
       <header className={s.appHeader}>
-            forum for your soul
+            <img src="logo.png"/>
       </header>
     );
 }
