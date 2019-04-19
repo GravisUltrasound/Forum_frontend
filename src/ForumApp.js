@@ -15,8 +15,8 @@ const ForumApp = () => {
                 <Header/>
                 <Navbar/>
                 <div className={s.appContent}>
-                    <Route path='/profile'render={ () => <Profile/>}/>
-                    <Route path='/topics' render={() => <Topics/>}/>
+                    <Route path='/profile' component={Profile}/>
+                    <Route path='/topics' component={Topics}/>
                 </div>
                 <Footer/>
             </div>
