@@ -1,4 +1,11 @@
 .appHeader {
     grid-area: header;
-    background-color: aquamarine;
+    background-color: #333439;
+    border-bottom-left-radius: 20px;
+    box-shadow: 1px 1px 8px rgba(122,122,122,0.5);
+}
+
+.appHeader img{
+    margin-left: 25px;
+    margin-top: 4px;
 }

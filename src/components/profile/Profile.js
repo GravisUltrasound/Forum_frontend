@@ -1,9 +1,12 @@
 import React from 'react';
+import ProfileInfo from './profileInfo/ProfileInfo';
+
 
 const Profile = () => {
     return(
         <div>
-            Profile
+            <ProfileInfo/>
+            {/*<MyTopics/>*/}
         </div>
     );
 }
