@@ -10,7 +10,6 @@
     color: #eeeeee;
     text-decoration: none;
     user-select: none;
-    background-image: url(../../images/black30%.png);
     outline: none; /* убирать контур в Mozilla */
     display:block;
     height: 34px;
