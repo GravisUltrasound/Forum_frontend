@@ -2,6 +2,7 @@ let state = {
     topics: [
         {
             topicId: 1,
+
             title: "Title 1",
             firstMessage: "first message for topic 1",
             messages: [

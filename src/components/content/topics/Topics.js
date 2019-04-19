@@ -5,7 +5,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 const Topics = (props) => {
 
-    let topicsElements = props.state.topics.map(t => <Topic topicId={t.topicId} title={t.title} firstMessage={t.firstMessage} messages={t.messages}/>);
+    let topicsElements = props.state.map(t => <Topic topicId={t.topicId} title={t.title} firstMessage={t.firstMessage} messages={t.messages}/>);
 
     return (
         <BrowserRouter>

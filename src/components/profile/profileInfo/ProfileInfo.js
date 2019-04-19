@@ -6,7 +6,7 @@ const ProfileInfo = (props) =>{
     return(
         <div className={s.appProfile}>
             <Avatar/>
-            <Nickname name={props.users.name}/>
+            <Nickname state={props.state}/>
             <Information/>
         </div>
     )
@@ -19,11 +19,12 @@ const Avatar = (props) =>{
         </div>
     )
 }
-
+let mainUserId=1;
 const  Nickname = (props) =>{
+    debugger;
     return(
         <div className={s.appNick}>
-            {props}
+            {props.state[mainUserId-1].name}
         </div>
     )
 }
