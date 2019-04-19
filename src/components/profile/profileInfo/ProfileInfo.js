@@ -15,7 +15,7 @@ const ProfileInfo = () =>{
 const Avatar = (props) =>{
     return(
         <div className={s.appAvatar}>
-            <img width="100" height="100" src="/avatar.png"/>
+            <img width="100%" height="100%" src="/avatar.png"/>
         </div>
     )
 }
