@@ -2,11 +2,11 @@ import React from 'react';
 import Information from './information/Information'
 import s from './ProfileInfo.module.css'
 
-const ProfileInfo = () =>{
+const ProfileInfo = (props) =>{
     return(
         <div className={s.appProfile}>
             <Avatar/>
-            <Nickname/>
+            <Nickname name={props.users.name}/>
             <Information/>
         </div>
     )
@@ -23,7 +23,7 @@ const Avatar = (props) =>{
 const  Nickname = (props) =>{
     return(
         <div className={s.appNick}>
-            /prop Nick/
+            {props}
         </div>
     )
 }

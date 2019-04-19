@@ -3,7 +3,10 @@ import s from './Topics.module.css';
 import Topic from "./Topic";
 import {BrowserRouter, Route} from "react-router-dom";
 
-const Topics = () => {
+const Topics = (props) => {
+
+    let topicsElements = props.state.topics.map(t => <Topic topicId={t.topicId} title={t.title} firstMessage={t.firstMessage} messages={t.messages}/>);
+
     return (
         <BrowserRouter>
             <div className={s.topics}>
@@ -18,8 +21,7 @@ const Topics = () => {
                 <div>
                     <button>ADD</button>
                 </div>
-                <Topic topicId="1" title="Title 1" firstMessage="First message text"/>
-                <Topic topicId="2" title="Title 2" firstMessage="Second message text"/>
+                {topicsElements}
             </div>
         </BrowserRouter>
     );
