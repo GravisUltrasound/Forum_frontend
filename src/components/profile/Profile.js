@@ -5,7 +5,7 @@ import ProfileInfo from './profileInfo/ProfileInfo';
 const Profile = (props) => {
     return(
         <div>
-            <ProfileInfo userInfo={props}/>
+            <ProfileInfo state={props.state}/>
             {/*<MyTopics/>*/}
         </div>
     );

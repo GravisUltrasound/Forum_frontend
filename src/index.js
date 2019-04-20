@@ -1,12 +1,22 @@
 import React from 'react';
+import * as ReactDOM from "react-dom";
+import ForumApp from "./ForumApp";
+import {addTopic, subscribe, updateFirstMessageText, updateTopicTitle} from "./redux/state";
+import {BrowserRouter} from "react-router-dom";
+import state from './redux/state';
 import './index.css';
-import * as serviceWorker from './serviceWorker';
-import {renderEntireTree} from "./render";
-import state from "./redux/state";
+
+let renderEntireTree = (state) => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <ForumApp
+                state={state}
+                addTopic={addTopic}
+                updateTopicTitle={updateTopicTitle}
+                updateFirstMessageText={updateFirstMessageText}/>
+        </BrowserRouter>,
+        document.getElementById('root'));
+}
 
 renderEntireTree(state);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+subscribe(renderEntireTree);

@@ -1,5 +1,4 @@
-import {renderEntireTree} from "./../render";
-
+let rerenderEntireTree = () => {};
 let state = {
     topics: [
         {
@@ -55,7 +54,7 @@ export let addTopic = (firstMessageTopic) =>{
     };
 
     state.topics.push(newTopic);
-    renderEntireTree(state);
+    rerenderEntireTree(state);
 }
 
 export let updateTopicTitle = (newTopicTitle) => {
@@ -64,6 +63,9 @@ export let updateTopicTitle = (newTopicTitle) => {
 
 export let updateFirstMessageText = (newFirstMessageText) => {
     state.newFirstMessage = newFirstMessageText;
+}
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;
