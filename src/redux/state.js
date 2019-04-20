@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from './../render';
 let state = {
     topics: [
         {
@@ -43,5 +44,17 @@ let state = {
         {userId: 2, name: "Alexey"}
     ]
 };
+
+export  let addTopic = (firstMessageTopic) =>{
+    let newTopic = {
+        topicId: 5,
+        title: firstMessageTopic.title,
+        firstMessage: firstMessageTopic.firstMessage
+    };
+
+    state.topics.push(newTopic);
+    rerenderEntireTree(state);
+
+}
 
 export default state;

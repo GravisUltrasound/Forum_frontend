@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import ForumApp from './ForumApp';
 import * as serviceWorker from './serviceWorker';
-import state from './redux/state';
+import  {rerenderEntireTree} from './render';
+import state from'./redux/state';
 
-ReactDOM.render(<ForumApp state={state}/>, document.getElementById('root'));
+rerenderEntireTree(state);
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
