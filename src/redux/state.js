@@ -1,71 +1,73 @@
-let rerenderEntireTree = () => {};
-let state = {
-    topics: [
-        {
-            topicId: 1,
-            title: "Title 1",
-            firstMessage: "first message for topic 1",
-            messages: [
-                {topicId: 1, messageId: 1, text: "first message for topic 1"},
-                {topicId: 1, messageId: 2, text: "koroche cheto napisano"}
-            ]
-        },
-        {
-            topicId: 2,
-            title: "Title 2",
-            firstMessage: "first message for topic 2",
-            messages: [
-                {topicId: 2, messageId: 1, text: "aaaaaaaaaaaaa"},
-                {topicId: 2, messageId: 2, text: "aaaaaaaaaaaaa"}
-            ]
-        },
-        {
-            topicId: 3,
-            title: "Title 3",
-            firstMessage: "first message for topic 3",
-            messages: [
-                {topicId: 3, messageId: 1, text: "aaaaaaaaaaaaa"},
-                {topicId: 3, messageId: 2, text: "aaaaaaaaaaaaa"}
-            ]
-        },
-        {
-            topicId: 4,
-            title: "Title 4",
-            firstMessage: "first message for topic 4",
-            messages: [
-                {topicId: 4, messageId: 1, text: "aaaaaaaaaaaaa"},
-                {topicId: 4, messageId: 2, text: "aaaaaaaaaaaaa"},
-                {topicId: 4, messageId: 3, text: "aaaaaaaaaaaaa"}]
+let store = {
+    _state: {
+        topics: [
+            {
+                topicId: 1,
+                title: "Title 1",
+                firstMessage: "first message for topic 1",
+                messages: [
+                    {topicId: 1, messageId: 1, text: "first message for topic 1"},
+                    {topicId: 1, messageId: 2, text: "koroche cheto napisano"}
+                ]
+            },
+            {
+                topicId: 2,
+                title: "Title 2",
+                firstMessage: "first message for topic 2",
+                messages: [
+                    {topicId: 2, messageId: 1, text: "aaaaaaaaaaaaa"},
+                    {topicId: 2, messageId: 2, text: "aaaaaaaaaaaaa"}
+                ]
+            },
+            {
+                topicId: 3,
+                title: "Title 3",
+                firstMessage: "first message for topic 3",
+                messages: [
+                    {topicId: 3, messageId: 1, text: "aaaaaaaaaaaaa"},
+                    {topicId: 3, messageId: 2, text: "aaaaaaaaaaaaa"}
+                ]
+            },
+            {
+                topicId: 4,
+                title: "Title 4",
+                firstMessage: "first message for topic 4",
+                messages: [
+                    {topicId: 4, messageId: 1, text: "aaaaaaaaaaaaa"},
+                    {topicId: 4, messageId: 2, text: "aaaaaaaaaaaaa"},
+                    {topicId: 4, messageId: 3, text: "aaaaaaaaaaaaa"}]
+            }
+        ],
+        newTopicTitle: "",
+        newFirstMessage: "",
+        users: [
+            {userId: 1, name: "Nikita"},
+            {userId: 2, name: "Alexey"}
+        ]
+    },
+    getState() {
+        return this._state;
+    },
+    _renderEntireTree() {},
+    addTopic(firstMessageTopic) {
+        let newTopic = {
+            topicId: 5,
+            title: this._state.newTopicTitle,
+            firstMessage: this._state.newFirstMessage
         }
-    ],
-    newTopicTitle: "",
-    newFirstMessage: "",
-    users: [
-        {userId: 1, name: "Nikita"},
-        {userId: 2, name: "Alexey"}
-    ]
-};
-
-export let addTopic = (firstMessageTopic) =>{
-    let newTopic = {
-        topicId: 5,
-        title: state.newTopicTitle,
-        firstMessage: state.newFirstMessage
-    };
-
-    state.topics.push(newTopic);
-    rerenderEntireTree(state);
+        this._state.topics.push(newTopic);
+        this._renderEntireTree(this._state);
+    },
+    updateTopicTitle(newTopicTitle) {
+        this._state.newTopicTitle = newTopicTitle;
+    },
+    updateFirstMessageText(newFirstMessageText) {
+        this._state.newFirstMessage = newFirstMessageText;
+    },
+    subscribe(observer) {
+        this._renderEntireTree = observer;
+    }
 }
 
-export let updateTopicTitle = (newTopicTitle) => {
-    state.newTopicTitle = newTopicTitle;
-}
-
-export let updateFirstMessageText = (newFirstMessageText) => {
-    state.newFirstMessage = newFirstMessageText;
-}
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer;
-}
-
-export default state;
+export default store;
+window.store = store;

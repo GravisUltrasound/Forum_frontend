@@ -6,7 +6,7 @@ import Topics from './components/content/topics/Topics';
 import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./components/profile/Profile";
 import Footer from "./components/footer/Footer";
-import state from "./redux/state.js";
+import store from "./redux/state.js";
 import Login from "./components/content/login/Login.js";
 
 const ForumApp = (props) => {
@@ -18,9 +18,9 @@ const ForumApp = (props) => {
                 <div className={s.appContent}>
                     <Route path="/login" render={() => <Login/>}/>
                     <Route path='/profile'
-                           render={() => <Profile state={state.users}/>}/>
+                           render={() => <Profile state={store.getState().users}/>}/>
                     <Route path='/topics'
-                           render={() => <Topics state={state}
+                           render={() => <Topics state={store.getState()}
                                                  addTopic={props.addTopic}
                                                  updateTopicTitle={props.updateTopicTitle}
                                                  updateFirstMessageText={props.updateFirstMessageText}/>}/>

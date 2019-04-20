@@ -1,22 +1,22 @@
 import React from 'react';
 import * as ReactDOM from "react-dom";
-import ForumApp from "./ForumApp";
-import {addTopic, subscribe, updateFirstMessageText, updateTopicTitle} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
-import state from './redux/state';
 import './index.css';
+
+import store from './redux/state'
+import ForumApp from "./ForumApp";
 
 let renderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <ForumApp
-                state={state}
-                addTopic={addTopic}
-                updateTopicTitle={updateTopicTitle}
-                updateFirstMessageText={updateFirstMessageText}/>
+                state={store.getState()}
+                addTopic={store.addTopic.bind(store)}
+                updateTopicTitle={store.updateTopicTitle.bind(store)}
+                updateFirstMessageText={store.updateFirstMessageText.bind(store)}/>
         </BrowserRouter>,
         document.getElementById('root'));
 }
 
-renderEntireTree(state);
-subscribe(renderEntireTree);
+renderEntireTree(store.getState());
+store.subscribe(renderEntireTree);
