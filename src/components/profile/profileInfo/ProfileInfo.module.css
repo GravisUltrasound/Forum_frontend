@@ -4,8 +4,8 @@
     margin-right: 100px;
 
     grid-template-areas:
-    "ava inform"
-    "nick inform";
+            "ava inform"
+            "nick inform";
     grid-template-columns: 150px 1fr;
     grid-template-rows: 150px 60px;
     grid-gap: 20px;

@@ -1,23 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import ForumApp from './ForumApp';
-import {addTopic} from "./redux/state";
-import {updateFirstMessageText} from "./redux/state";
-import {updateTopicTitle} from "./redux/state";
+import * as ReactDOM from "react-dom";
+import ForumApp from "./ForumApp";
+import {addTopic, updateFirstMessageText, updateTopicTitle} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
-export let rerenderEntireTree = (state) => {
+export let renderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <ForumApp state={state}
-                      addTopic={addTopic}
-                      updateFirstMessageText={updateFirstMessageText}
-                      updateTopicTitle={updateTopicTitle}/>
+            <ForumApp
+                state={state}
+                addTopic={addTopic}
+                updateTopicTitle={updateTopicTitle}
+                updateFirstMessageText={updateFirstMessageText}/>
         </BrowserRouter>,
-        document.getElementById('root')
-    );
+        document.getElementById('root'));
 }
-// export default renderEntireTree;
-
-
