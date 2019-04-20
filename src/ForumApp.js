@@ -8,7 +8,7 @@ import Profile from "./components/profile/Profile";
 import Footer from "./components/footer/Footer";
 import state from "./redux/state.js";
 import Topic from "./components/content/topics/Topic";
-import {addTopic} from "./redux/state";
+import {addTopic, updateFirstMessageText, updateTopicTitle} from "./redux/state";
 
 const ForumApp = (props) => {
     return (
@@ -20,7 +20,10 @@ const ForumApp = (props) => {
                     <Route path='/profile'
                            render={() => <Profile state={state.users}/>}/>
                     <Route path='/topics'
-                           render={() => <Topics state={state.topics} addTopic={addTopic}/>}/>
+                           render={() => <Topics state={state}
+                                                 addTopic={addTopic}
+                                                 updateFirstMessageText={updateFirstMessageText}
+                                                 updateTopicTitle={updateTopicTitle}/>}/>
                 </div>
                 <Footer/>
             </div>

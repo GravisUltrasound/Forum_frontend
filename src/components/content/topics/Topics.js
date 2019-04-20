@@ -7,13 +7,13 @@ import {BrowserRouter, Route} from "react-router-dom";
 const Topics = (props) => {
     debugger;
 
-    let topicsElements = props.state.map(t => <Topic topicId={t.topicId} title={t.title} firstMessage={t.firstMessage} messages={t.messages}/>);
+    let topicsElements = props.state.topics.map(t => <Topic topicId={t.topicId} title={t.title} firstMessage={t.firstMessage} messages={t.messages}/>);
     let addTopic = () => {
-        let firstMessagetopic = {
+        let firstMessageTopic = {
             title: newTopic.current.value,
             firstMessage: newMessage.current.value
         };
-        props.addTopic(firstMessagetopic);
+        props.addTopic(firstMessageTopic);
         newMessage.current.value = '';
         newTopic.current.value = '';
 
@@ -21,16 +21,26 @@ const Topics = (props) => {
     let newTopic = React.createRef();
     let newMessage = React.createRef();
 
+    let onTopicChange = () => {
+        let text = newTopic.current.value;
+        props.updateTopicTitle(text);
+    }
+    let onMessageChange = () => {
+        let text = newMessage.current.value;
+        props.updateFirstMessageText(text);
+    }
+
     return (
         <BrowserRouter>
             <div className={s.topics}>
                 <h1>Topics</h1>
-                <div>Add message:</div>
                 <div>
-                    <textarea ref={newTopic}>Topic name...</textarea>
+                    <div>New Topic</div>
+                    <textarea onChange={onTopicChange} ref={newTopic} value={props.newTopicTitle}/>
                 </div>
                 <div>
-                    <textarea ref={newMessage}>First message...</textarea>
+                    <div>Message of topic</div>
+                    <textarea onChange={onMessageChange} ref={newMessage} value={props.newFirstMessageText}/>
                 </div>
                 <div>
                     <button onClick={addTopic}>ADD</button>

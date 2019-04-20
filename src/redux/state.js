@@ -42,8 +42,11 @@ let state = {
     users: [
         {userId: 1, name: "Nikita"},
         {userId: 2, name: "Alexey"}
-    ]
+    ],
+    newFirstMessageText: '',
+    newTopicTitle: ''
 };
+
 
 export  let addTopic = (firstMessageTopic) =>{
     let newTopic = {
@@ -54,7 +57,13 @@ export  let addTopic = (firstMessageTopic) =>{
 
     state.topics.push(newTopic);
     rerenderEntireTree(state);
+}
+export let updateTopicTitle = (newTopicTitle) => {
+    state.newTopicTitle = newTopicTitle;
+}
 
+export let updateFirstMessageText = (newFirstMessageText) => {
+    state.newFirstMessage = newFirstMessageText;
 }
 
 export default state;
