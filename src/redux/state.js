@@ -1,3 +1,5 @@
+import {renderEntireTree} from "./../render";
+
 let state = {
     topics: [
         {
@@ -37,10 +39,31 @@ let state = {
                 {topicId: 4, messageId: 3, text: "aaaaaaaaaaaaa"}]
         }
     ],
+    newTopicTitle: "",
+    newFirstMessage: "",
     users: [
         {userId: 1, name: "Nikita"},
         {userId: 2, name: "Alexey"}
     ]
 };
+
+export let addTopic = (firstMessageTopic) =>{
+    let newTopic = {
+        topicId: 5,
+        title: state.newTopicTitle,
+        firstMessage: state.newFirstMessage
+    };
+
+    state.topics.push(newTopic);
+    renderEntireTree(state);
+}
+
+export let updateTopicTitle = (newTopicTitle) => {
+    state.newTopicTitle = newTopicTitle;
+}
+
+export let updateFirstMessageText = (newFirstMessageText) => {
+    state.newFirstMessage = newFirstMessageText;
+}
 
 export default state;

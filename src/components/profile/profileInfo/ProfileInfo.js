@@ -6,7 +6,7 @@ const ProfileInfo = (props) =>{
     return(
         <div className={s.appProfile}>
             <Avatar/>
-            <Nickname name={props.users.name}/>
+            <Nickname name={props.name}/>
             <Information/>
         </div>
     )
@@ -15,7 +15,7 @@ const ProfileInfo = (props) =>{
 const Avatar = (props) =>{
     return(
         <div className={s.appAvatar}>
-            <img width="100" height="100" src="/avatar.png"/>
+            <img width="100%" height="100%" src="/avatar.png"/>
         </div>
     )
 }
@@ -23,7 +23,7 @@ const Avatar = (props) =>{
 const  Nickname = (props) =>{
     return(
         <div className={s.appNick}>
-            {props}
+            {props.name}
         </div>
     )
 }
