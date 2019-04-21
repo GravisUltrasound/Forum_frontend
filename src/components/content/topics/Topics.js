@@ -6,11 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 const Topics = (props) => {
 
     let addNewTopic = () => {
-        let firstMessageTopic = {
-            title: newTopic.current.value,
-            firstMessage: newMessage.current.value
-        }
-        props.addTopic(firstMessageTopic);
+        props.dispatch({type: 'ADD-TOPIC'});
         newMessage.current.value = "";
         newTopic.current.value = "";
     }
@@ -25,12 +21,12 @@ const Topics = (props) => {
 
     let onTopicChange = () => {
         let title = newTopic.current.value;
-        props.updateTopicTitle(title);
+        props.dispatch({type: 'UPDATE-TOPIC-TITLE', newTopicTitleText: title});
     }
 
     let onMessageChange = () => {
         let text = newMessage.current.value;
-        props.updateFirstMessageText(text);
+        props.dispatch({type: 'UPDATE-FIRST-MESSAGE-TEXT', newFirstMessageText: text});
     }
 
     return (

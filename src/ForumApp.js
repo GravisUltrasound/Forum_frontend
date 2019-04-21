@@ -21,9 +21,7 @@ const ForumApp = (props) => {
                            render={() => <Profile state={store.getState().users}/>}/>
                     <Route path='/topics'
                            render={() => <Topics state={store.getState()}
-                                                 addTopic={props.addTopic}
-                                                 updateTopicTitle={props.updateTopicTitle}
-                                                 updateFirstMessageText={props.updateFirstMessageText}/>}/>
+                                                 dispatch={props.dispatch}/>}/>
                 </div>
                 <Footer/>
             </div>

@@ -45,27 +45,33 @@ let store = {
             {userId: 2, name: "Alexey"}
         ]
     },
+    _renderEntireTree() {},
+
     getState() {
         return this._state;
     },
-    _renderEntireTree() {},
-    addTopic(firstMessageTopic) {
-        let newTopic = {
-            topicId: 5,
-            title: this._state.newTopicTitle,
-            firstMessage: this._state.newFirstMessage
-        }
-        this._state.topics.push(newTopic);
-        this._renderEntireTree(this._state);
-    },
-    updateTopicTitle(newTopicTitle) {
-        this._state.newTopicTitle = newTopicTitle;
-    },
-    updateFirstMessageText(newFirstMessageText) {
-        this._state.newFirstMessage = newFirstMessageText;
-    },
     subscribe(observer) {
         this._renderEntireTree = observer;
+    },
+
+    dispatch(action){
+        if (action.type === 'ADD-TOPIC'){
+            let newTopic = {
+                topicId: 5,
+                title: this._state.newTopicTitle,
+                firstMessage: this._state.newFirstMessage
+            }
+            this._state.topics.push(newTopic);
+            this._renderEntireTree(this._state);
+            this._state.newTopicTitle = '';
+            this._state.newFirstMessage = '';
+        }
+        else if (action.type === 'UPDATE-TOPIC-TITLE') {
+            this._state.newTopicTitle = action.newTopicTitleText ;
+        }
+        else if (action.type === 'UPDATE-FIRST-MESSAGE-TEXT') {
+            this._state.newFirstMessage = action.newFirstMessageText;
+        }
     }
 }
 

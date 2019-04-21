@@ -11,12 +11,11 @@ let renderEntireTree = (state) => {
         <BrowserRouter>
             <ForumApp
                 state={store.getState()}
-                addTopic={store.addTopic.bind(store)}
-                updateTopicTitle={store.updateTopicTitle.bind(store)}
-                updateFirstMessageText={store.updateFirstMessageText.bind(store)}/>
+                dispatch={store.dispatch.bind(store)}/>
         </BrowserRouter>,
         document.getElementById('root'));
 }
+
 
 renderEntireTree(store.getState());
 store.subscribe(renderEntireTree);
