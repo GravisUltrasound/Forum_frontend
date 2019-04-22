@@ -8,6 +8,7 @@ import Profile from "./components/profile/Profile";
 import Footer from "./components/footer/Footer";
 import store from "./redux/state.js";
 import Login from "./components/content/login/Login.js";
+import Topic from "./components/content/topics/Topic";
 
 const ForumApp = (props) => {
     return (
@@ -16,7 +17,7 @@ const ForumApp = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className={s.appContent}>
-                    <Route path="/login" render={() => <Login/>}/>
+                    <Route path='/login' render={() => <Login/>}/>
                     <Route path='/profile'
                            render={() => <Profile state={store.getState().users}/>}/>
                     <Route path='/topics'

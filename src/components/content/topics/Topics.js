@@ -2,31 +2,35 @@ import React from 'react';
 import s from './Topics.module.css';
 import Topic from "./Topic";
 import {BrowserRouter} from "react-router-dom";
+import {
+    addNewTopicActionCreator,
+    updateFirstMessageTextActionCreator,
+    updateTopicTitleActionCreator
+} from "../../../redux/state";
 
 const Topics = (props) => {
-
-    let addNewTopic = () => {
-        props.dispatch({type: 'ADD-TOPIC'});
-        newMessage.current.value = "";
-        newTopic.current.value = "";
-    }
 
     let newTopic = React.createRef();
     let newMessage = React.createRef();
 
     let topicsElements = props.state.topics.map(t => <Topic topicId={t.topicId}
                                                             title={t.title}
-                                                            firstMessage={t.firstMessage}
-                                                            messages={t.messages}/>);
+                                                            messages={t.messages}
+                                                            subscribe={props.state.subscribe}/>);
+
 
     let onTopicChange = () => {
         let title = newTopic.current.value;
-        props.dispatch({type: 'UPDATE-TOPIC-TITLE', newTopicTitleText: title});
+        props.dispatch(updateTopicTitleActionCreator(title));
     }
-
-    let onMessageChange = () => {
+    let onFirstMessageChange = () => {
         let text = newMessage.current.value;
-        props.dispatch({type: 'UPDATE-FIRST-MESSAGE-TEXT', newFirstMessageText: text});
+        props.dispatch(updateFirstMessageTextActionCreator(text));
+    }
+    let addNewTopic = () => {
+        props.dispatch(addNewTopicActionCreator());
+        newMessage.current.value = "";
+        newTopic.current.value = "";
     }
 
     return (
@@ -39,7 +43,7 @@ const Topics = (props) => {
                 </div>
                 <div>
                     <div>First message:</div>
-                    <textarea ref={newMessage} onChange={onMessageChange} value={props.newFirstMessage}/>
+                    <textarea ref={newMessage} onChange={onFirstMessageChange} value={props.newFirstMessage}/>
                 </div>
                 <div>
                     <button onClick={addNewTopic}>Add</button>

@@ -4,7 +4,7 @@ import s from './Message.module.css';
 const Message = (props) => {
     return (
         <div className={s.message}>
-            <p><img src="\src\images\avatar.png" alt="авка"/></p>
+            <img className={s.img} width='100%' height='100%' src='/avatar.png'/>
             <div className={s.text}>
                 {props.text}
             </div>
