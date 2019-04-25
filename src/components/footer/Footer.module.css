@@ -1,0 +1,12 @@
+.footer {
+    grid-area: footer;
+    box-shadow: 1px 1px 8px rgba(122,122,122,0.5);
+    padding: 5px;
+    background-color: #333439;
+}
+
+.footer a {
+    font-size: small;
+    text-decoration: none;
+    color: #eeeeee;
+}

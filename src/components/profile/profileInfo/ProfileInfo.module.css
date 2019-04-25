@@ -1,0 +1,26 @@
+.appProfile{
+    display: grid;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    grid-template-areas:
+            "ava inform"
+            "nick inform";
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 150px 60px;
+    grid-gap: 20px;
+    /*border-radius: 20px;*/
+
+}
+
+.appAvatar{
+    grid-area: ava;
+    /*background-color: #FFE4A4;*/
+}
+
+.appNick{
+    grid-area: nick;
+    font-size: 25px;
+    font-weight: 700;
+    /*background-color: aqua;*/
+}

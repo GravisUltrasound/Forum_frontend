@@ -1,0 +1,21 @@
+.message {
+    display: grid;
+
+    grid-template-areas:
+            "avatar text";
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 50px;
+    grid-gap: 5px;
+    margin-bottom: 5px;
+}
+
+.img {
+    grid-area: avatar;
+    width: 50px;
+}
+
+.text {
+    grid-area: text;
+    border-radius: 5px;
+    border: 1px double black;
+}

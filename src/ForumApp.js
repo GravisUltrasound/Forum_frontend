@@ -1,22 +1,32 @@
 import React from 'react';
-import './ForumApp.css';
+import s from './ForumApp.module.css';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
-import Content from './components/content/Content';
+import Topics from './components/content/topics/Topics';
+import {BrowserRouter, Route} from "react-router-dom";
+import Profile from "./components/profile/Profile";
+import Footer from "./components/footer/Footer";
+import store from "./redux/state.js";
+import Login from "./components/content/login/Login.js";
+import Topic from "./components/content/topics/Topic";
 
-const ForumApp = () => {
+const ForumApp = (props) => {
     return (
-        <div className='appMain'>
-            <div className='appHeader'>
+        <BrowserRouter>
+            <div className={s.appMain}>
                 <Header/>
-            </div>
-            <div className='appNavbar'>
                 <Navbar/>
+                <div className={s.appContent}>
+                    <Route path='/login' render={() => <Login/>}/>
+                    <Route path='/profile'
+                           render={() => <Profile state={store.getState().users}/>}/>
+                    <Route path='/topics'
+                           render={() => <Topics state={store.getState()}
+                                                 dispatch={props.dispatch}/>}/>
+                </div>
+                <Footer/>
             </div>
-            <div className='appContent'>
-                <Content/>
-            </div>
-        </div>
+        </BrowserRouter>
     );
 }
 

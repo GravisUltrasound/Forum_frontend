@@ -1,0 +1,5 @@
+.appInformation{
+    grid-area: inform;
+    border: 1px double #333439;
+    /*background-color: blueviolet;*/
+}
